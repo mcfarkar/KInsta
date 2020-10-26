@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/action_home"
+        android:checkable="false"
+        android:checked="false"
         android:enabled="true"
-        android:icon="@drawable/instagram_home_outline_24"
-        android:title="@string/home"/>
+
+        android:icon="@drawable/selector_home"
+        android:title="@string/home"
+        app:showAsAction="always" />
     <item
-        android:id="@+id/action_post"
+        android:id="@+id/action_compose"
         android:enabled="true"
-        android:icon="@drawable/instagram_new_post_outline_24"
-        android:title="@string/post"/>
+
+
+        android:icon="@drawable/selector_compose"
+        android:title="Compose"
+        app:showAsAction="always" />
     <item
-        android:id="@+id/action_user"
+        android:id="@+id/action_profile"
         android:enabled="true"
-        android:icon="@drawable/instagram_user_outline_24"
-        android:title="@string/logout"/>
+
+        android:icon="@drawable/selector_profile"
+        android:title="Profile"
+        app:showAsAction="always" />
 
 </menu>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.ComposeFragment">
+
+
+
+    <EditText
+        android:id="@+id/etDescription"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/edit_text_border"
+        android:inputType="text"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+
+        android:ems="10"
+        android:hint="@string/description"/>
+
+    <Button
+        android:id="@+id/btnCaptureImage"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/etDescription"
+        android:background="#C13584"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@drawable/mycamera"
+
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:text="@string/take_picture"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        />
+
+    <ImageView
+        android:id="@+id/ivPostImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/btnCaptureImage"
+        tools:srcCompat="@tools:sample/avatars" />
+
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/ivPostImage"
+        android:layout_marginTop="10dp"
+        android:background="#4FC43A"
+
+        android:text="@string/submit"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/btnSubmit"
+        android:background="#0096F6"
+        android:text="Logout"
+        android:textColor="#FFFFFF" />
+
+</LinearLayout>
