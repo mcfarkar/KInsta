@@ -15,6 +15,8 @@ import com.parse.ParseFile;
 
 import java.util.List;
 
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+
 /**
  * Created by mcfarkar on 26,October,2020
  */
@@ -78,6 +80,10 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             // 9 Bind the post data into the view elements
             tvDescription.setText(post.getDescription());
             tvUsername.setText(post.getUser().getUsername());
+
+//            int radius = 30; // corner radius, higher value = more rounded
+//            int margin = 10; // crop margin, set to 0 for corners with no crop
+
             ParseFile image = post.getImage();
             if(image != null) {
                 Glide.with(context).load(image.getUrl()).into(ivImage);

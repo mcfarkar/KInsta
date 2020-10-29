@@ -22,6 +22,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.codepath.mcfarkar.kinsta.LoginActivity;
 import com.codepath.mcfarkar.kinsta.MainActivity;
 import com.codepath.mcfarkar.kinsta.Post;
 import com.codepath.mcfarkar.kinsta.R;
@@ -82,8 +83,6 @@ public class ComposeFragment extends Fragment {
         btnSubmit = view.findViewById(R.id.btnSubmit);
         btnLogout = view.findViewById(R.id.btnLogout);
 
-        currentUser.setUsername("Waldo");
-
         btnCaptureImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -129,9 +128,13 @@ public class ComposeFragment extends Fragment {
         ParseUser.logOut();
         ParseUser currentUser = ParseUser.getCurrentUser(); // this will now be null
 
+        Intent i = new Intent(getContext(), LoginActivity.class);
+        startActivity(i);
+
         //finish(); // to make sure that the user exits the app if this button is clicked
 
     }
+
 
 
     private void launchCamera() {
