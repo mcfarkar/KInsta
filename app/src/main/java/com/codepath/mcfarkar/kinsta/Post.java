@@ -7,6 +7,8 @@ import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
+import java.util.Date;
+
 /**
  * Created by mcfarkar on 24,October,2020
  */
@@ -17,8 +19,11 @@ public class Post extends ParseObject {
     public static final String KEY_IMAGE = "image";
     public static final String KEY_USER = "user";
     public static final String KEY_CREATED_KEY = "createdAt";
+    public static final String KEY_PROFILE_IMAGE = "profileImage";
+    public ParseUser user;
 
     // define getters and setters
+
 
     public String getDescription() {
         return getString(KEY_DESCRIPTION);
@@ -44,6 +49,22 @@ public class Post extends ParseObject {
     public void setUser(ParseUser user) {
         put(KEY_USER, user);
     }
+
+    public ParseFile getProfileImage() {
+
+        user = getUser();
+        return user.getParseFile(KEY_PROFILE_IMAGE);
+    }
+
+//    public void setProfileImage(ParseFile profileImage) {
+//        user = getUser();
+//        user.put(KEY_PROFILE_IMAGE, profileImage);
+//    }
+
+
+
+
+
 
 
 }

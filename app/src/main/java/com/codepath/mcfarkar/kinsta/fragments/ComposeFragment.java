@@ -217,6 +217,9 @@ public class ComposeFragment extends Fragment {
 
     }
 
+    // add profile upload here
+
+
 
 
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KInstaApp</string>
+    <string name="app_name">KInsta</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -10,8 +10,8 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="login">LOGIN</string>
-    <string name="username">username</string>
-    <string name="password">password</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
     <string name="description">Description...</string>
     <string name="take_picture">Take a Picture</string>
     <string name="submit">submit</string>

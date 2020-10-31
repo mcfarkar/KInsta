@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,7 +18,9 @@ import com.codepath.mcfarkar.kinsta.Post;
 import com.codepath.mcfarkar.kinsta.PostsAdapter;
 import com.codepath.mcfarkar.kinsta.R;
 import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.ParseException;
+import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
@@ -33,6 +36,7 @@ public class PostsFragment extends Fragment {
     private RecyclerView rvPosts;
     protected PostsAdapter adapter;
     protected List<Post> allPosts;
+    private SwipeRefreshLayout swipeContainer;
 
     public PostsFragment() {
         // Required empty public constructor
@@ -54,6 +58,8 @@ public class PostsFragment extends Fragment {
         allPosts = new ArrayList<>();
         adapter = new PostsAdapter(getContext(),allPosts );
 
+        queryPosts();
+
 
 //        How to Use the Recycler View
 //        0 Create layout for one row in the list
@@ -71,9 +77,28 @@ public class PostsFragment extends Fragment {
 //        4 Set the Layout Manager on the Recycler View
         rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        queryPosts();
-
+        // Lookup the swipe container view
+        swipeContainer = (SwipeRefreshLayout) view.findViewById(R.id.swipeContainer);
+        // Setup refresh listener which triggers new data loading
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // Your code to refresh the list here.
+                // Make sure you call swipeContainer.setRefreshing(false)
+                // once the network request has completed successfully.
+//                fetchTimelineAsync(0);
+                queryPosts();
+                // Now we call setRefreshing(false) to signal refresh has finished
+                swipeContainer.setRefreshing(false);
+            }
+        });
+        // Configure the refreshing colors
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
     }
+
 
     protected void queryPosts() {
 
@@ -94,14 +119,22 @@ public class PostsFragment extends Fragment {
 
                 // if query succeeded, iterate through all of the posts
                 for (Post post : posts){
-                   Log.i(TAG, "Post: " + post.getDescription() + ", username: " + post.getUser().getUsername());
-//                    Log.i(TAG, "Post: " + post.getDescription() );
+
+
+
+                  //  Log.i(TAG, "Post: " + post.getDescription() + ", username: " + post.getUser().getUsername() + ", Created Date: " + post.getCreatedDate());
+                    Log.i(TAG, "Post: " + post.getCreatedAt().toString());
                 }
+
+                adapter.clear();
                 allPosts.addAll(posts);
+
                 adapter.notifyDataSetChanged();
 
             }
         });
     }
+
+
 
 }
