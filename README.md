@@ -36,9 +36,9 @@ Here's a walkthrough of implemented user stories:
 
 [Video Walkthrough GIF](https://i.imgur.com/3FKi6pg.gif)
 
-![](https://github.com/mcfarkar/KInsta/blob/main/KInsta1b.PNG)
-![](https://github.com/mcfarkar/KInsta/blob/main/KInsta4.PNG)
-![](https://github.com/mcfarkar/KInsta/blob/main/KInsta3.PNG)
+![](https://github.com/mcfarkar/KInsta/blob/main/KInsta1b.JPG)
+![](https://github.com/mcfarkar/KInsta/blob/main/KInsta4.JPG)
+![](https://github.com/mcfarkar/KInsta/blob/main/KInsta3.JPG)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
